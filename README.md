@@ -8,14 +8,15 @@ This repo contains the necessary code to process hourly GBR4 hydro downscaled fo
 
 2. Produce a daily average fiel from hourly data for summer months. Use `python3 makeDailyAvg.py input.nc`. It will produce a `daily_...` file containinf the daily averages and a `mean_...` file which is the summer average
 
-3. Grid the file into a regular grid for the GBR. This is the tricky part as the package xesfm is quite difficult to install due to some old dependencies. I don't know if this is still valid for newer releases of the package. Use `gridGBR4.py` to produce a regular gridded file. This code has some components that have to be run in sequence:  
+3. Grid the file into a regular grid for the GBR. This is the tricky part as the package xesfm is quite difficult to install due to some old dependencies. I don't know if this is still valid for newer releases of the package. Use `gridGBR4.py` to produce a regular gridded file. This code has some components that have to be run in sequence. You can do it manually going one function at time or run in from the terminal using the mean average file as input:  
     - Prepare the GBR4 with the function `prepareGBR`. Change dimension names, and squeeze the file. xesfm expecte i, j dimesions to be names as x, y
     - Create an output grid with the function `createGBR4grid`. In this case, I am using 0.04x0.04 cells bounded to lon/lat ([142.02,155.38],[-28.58,-7.41])
     - Create a regridder with the function `createReggrider`. It uses the cleaned GBR4 file and the regular grid we just created above
     - regrid the dataset: `nc_gridded = createRegridder(nc, outgrid)`
     - create file with 1D coordinates for each variable and fix names. Use the function `cleanGridded`
+
     
-4. Produce the anomaly map. This is done by subtracting the longitudinal mean of every latitude to the each values of the transect. Use  
+4. Produce the anomaly map. This is done by subtracting the longitudinal mean of every latitude to the each values of the transect. Use `lonTempAnom.py`. Run it from terminla passing the gridded file name and the name of the output file.
   
 5. you can use NCO tools to clip the file or to concatenate multiple files into one (note: in the resulting files `time` is an unlimited dimension)
 
