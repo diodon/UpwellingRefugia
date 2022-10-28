@@ -1,6 +1,6 @@
 # Upwelling Refugia
 
-This repo contains the necessary code to process hourly GBR4 hydro downscaled forecasts
+This repo contains the necessary code to process hourly GBR4 hydro downscaled forecasts.
 
 ## Procedure
 
@@ -14,8 +14,10 @@ This repo contains the necessary code to process hourly GBR4 hydro downscaled fo
     - Create a regridder with the function `createReggrider`. It uses the cleaned GBR4 file and the regular grid we just created above
     - regrid the dataset: `nc_gridded = createRegridder(nc, outgrid)`
     - create file with 1D coordinates for each variable and fix names. Use the function `cleanGridded`
+    
+4. Produce the anomaly map. This is done by subtracting the longitudinal mean of every latitude to the each values of the transect. Use  
   
-4. you can use NCO tools to clip the file or to concatenate multiple files into one (note: in the resulting files `time` is an unlimited dimension)
+5. you can use NCO tools to clip the file or to concatenate multiple files into one (note: in the resulting files `time` is an unlimited dimension)
 
 
 ## Note
