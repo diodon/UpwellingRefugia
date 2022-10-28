@@ -20,5 +20,6 @@ This repo contains the necessary code to process hourly GBR4 hydro downscaled fo
 
 ## Note
 
-I am using a conda environment for the regridding process, which is in this repo
+I am using a conda environment for the regridding process, which is provided on request (1.2 GB)
+
 
