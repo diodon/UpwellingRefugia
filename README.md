@@ -18,3 +18,7 @@ This repo contains the necessary code to process hourly GBR4 hydro downscaled fo
 4. you can use NCO tools to clip the file or to concatenate multiple files into one (note: in the resulting files `time` is an unlimited dimension)
 
 
+## Note
+
+I am using a conda environment for the regridding process, which is in this repo
+
